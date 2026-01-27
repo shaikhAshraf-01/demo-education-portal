@@ -24,17 +24,11 @@ function openStudent(){
 
     
     Login.addEventListener('click',()=>{
-         let RollNo=document.getElementById("rollNo").value;
-let password=document.getElementById("password").value;
-let Name=document.getElementById('name').value;
-        if(RollNo==='283' && Name==="Ashraf" && password==='@12345'){
+        
+       
     window.location.href="html/student.html"
 }
-else{
-    alert("Fill correct details to log in")
-}
-})
-}
+    )}
 
 function openTeacher(){
     hideAll();

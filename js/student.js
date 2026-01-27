@@ -1,31 +1,65 @@
-function openSection(id, el){
-    document.querySelectorAll('.section')
-        .forEach(s => s.classList.remove('active'));
+document.addEventListener("DOMContentLoaded",()=>{
+const navItems=document.querySelectorAll('.nav li');
+navItems.forEach(item => {
+    item.addEventListener('click',()=>{
+    navItems.forEach(li=>li.classList.remove("active"));
+item.classList.add("active");
 
-    document.getElementById(id).classList.add('active');
 
-    document.querySelectorAll('.sidebar li')
-        .forEach(l => l.classList.remove('active'));
+})
+})
+})
 
-    el.classList.add('active');
+
+
+const Dashboard=document.getElementById('dashboard');
+const Profile=document.getElementById('profile');
+const Subjects=document.getElementById('subjects');
+const ExamForm=document.getElementById('examform');
+const Events=document.getElementById('event');
+const Ticket=document.getElementById('ticket');
+const LogOut=document.querySelector('.logout');
+
+
+
+
+function hideAll(){
+     Dashboard.classList.add("hidden");
+    Profile.classList.add("hidden");
+    Subjects.classList.add("hidden");
+    ExamForm.classList.add("hidden");
+    Events.classList.add("hidden");
+    Ticket.classList.add("hidden");
 }
-LogOut=document.querySelector('.logout');
+function openDashboard(){
+    hideAll();
+     Dashboard.classList.remove("hidden");
+}
+
+function openProfile(){
+    hideAll();
+     Profile.classList.remove("hidden");
+}
+function openSubjects(){
+    hideAll();
+     Subjects.classList.remove("hidden");
+}
+function openExamform(){
+    hideAll();
+     ExamForm.classList.remove("hidden");
+}
+function openEvent(){
+    hideAll();
+     Events.classList.remove("hidden");
+}
+function openTicket(){
+    hideAll();
+     Ticket.classList.remove("hidden");
+}
 LogOut.addEventListener('click',()=>{
     window.location.href=`../index.html`
 })
 
-function filterTable(tableId, colIndex){
-    let input = document.getElementById("stdSearch");
-    let filter = input.value.toUpperCase();
-    let table = document.getElementById(tableId);
-    let tr = table.getElementsByTagName("tr");
 
-    for(let i=1;i<tr.length;i++){
-        let td = tr[i].getElementsByTagName("td")[colIndex];
-        if(td){
-            tr[i].style.display =
-                td.innerText.toUpperCase().includes(filter)
-                    ? "" : "none";
-        }
-    }
-}
+
+
