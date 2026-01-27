@@ -38,9 +38,7 @@ function back() {
   mainHead.classList.remove("hidden");
 }
 
-// Wait for DOM to be ready before attaching event listeners
 document.addEventListener("DOMContentLoaded", () => {
-  // Student Login Handler
   const stdLoginBtn = document.getElementById("stdLogin");
   if (stdLoginBtn) {
     stdLoginBtn.addEventListener("click", () => {
@@ -56,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Store all data in localStorage
       localStorage.setItem("studentName", name);
       localStorage.setItem("studentPRN", rollNo);
       localStorage.setItem("studentEmail", email);
@@ -64,12 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("studentDOB", dob);
       localStorage.setItem("studentAddress", address);
 
-      // Redirect to student dashboard
       window.location.href = "./html/student.html";
     });
   }
 
-  // Teacher Login Handler
   const teacherLoginBtn = document.getElementById("teacherLogin");
   if (teacherLoginBtn) {
     teacherLoginBtn.addEventListener("click", () => {
@@ -77,7 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Admin Login Handler
   const adminLoginBtn = document.getElementById("adminLogin");
   if (adminLoginBtn) {
     adminLoginBtn.addEventListener("click", () => {
