@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EducationHub</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <h1><i class="fa-solid fa-graduation-cap"></i>EducationHub</h1>
+        <p>Welcome to the Portal</p>
+    </div>
+    <div class="container">
+        <div id="mainhead"><h2>Select your Login Type</h2></div>
+
+        <div class="type" id="roleBox">
+            <button onclick="openAdmin()" class="admin">
+                <img src="css/admin-removebg-preview.png" alt="admin">
+                <h3>Login As Admin</h3>
+            </button >
+
+            <button onclick="openStudent()" class="student">
+                <img src="css/student-removebg-preview.png" alt="student" class="role-icon">
+                <h3>Login As Student</h3>
+            </button >
+
+            <button onclick="openTeacher()" class="teacher">
+                <img src="css/teacher-removebg-preview.png" alt="teacher">
+                <h3>Login As Teacher</h3>
+            </button >
+        </div>
+
+         <div class="card hidden" id="studentBox">
+      <h2>Student Login</h2>
+      <input type="text" id="rollNo" placeholder="Academic Roll / PRN">
+      <input type="text" id="name" placeholder="Student Name">
+      <input type="password" id="password" placeholder="Enter Your Password">
+      <button id="stdLogin">Login</button>
+      <p class="back" onclick="back()">← <span>Back</span></p>
+    </div>
+
+    <!-- TEACHER LOGIN -->
+    <div class="card hidden" id="teacherBox">
+      <h2>Teacher Login</h2>
+      <input type="text" placeholder="Teacher ID">
+      <input type="password" placeholder="Enter Your Password">
+       <button id="teacherLogin">Login</button>
+       <p class="back" onclick="back()">← <span>Back</span></p>
+    </div>
+
+    <!-- ADMIN LOGIN -->
+    <div class="card hidden" id="adminBox">
+      <h2>Admin Login</h2>
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="Password">
+      <button id="adminLogin">Login</button>
+      <p class="back" onclick="back()">← <span>Back</span></p>
+    </div>
+
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

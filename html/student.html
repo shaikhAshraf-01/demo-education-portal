@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <link rel="stylesheet" href="../css/student.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="logo">
+            <h1><i class="fa-solid fa-graduation-cap"></i>EducationHub</h1>
+        </div>
+        <button class="logout">Logout</button>
+    </header>
+
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="portfolio">
+                <img src="../css/student-removebg-preview.png" alt="">
+                <h3>Ashraf Shaikh</h3>
+                <p>Roll No: 283</p>
+                <p>SY-BCA</p>
+            </div>
+            <ul class="nav">
+                <li class="active" onclick="openDashboard()"><i class="fa-solid fa-house"></i>&nbsp;Dashboard</li>
+                <li onclick="openProfile()"><i class="fa-solid fa-user"></i>&nbsp;Profile</li>
+                <li onclick="openSubjects()"><i class="fa-solid fa-book"></i>&nbsp;Subjects</li>
+                <li onclick="openExamform()"><i class="fa-solid fa-file-lines"></i>&nbsp;Exam Forms</li>
+                <li onclick="openEvent()"><i class="fa-solid fa-calendar-days"></i>&nbsp;Events</li>
+                <li onclick="openTicket()"><i class="fa-solid fa-ticket"></i>&nbsp;Raise Ticket</li>
+            </ul>
+        </aside>
+
+        <div class="content " id="dashboard">
+            <h2>Student Dashboard</h2>
+            <hr>
+            <div class="stats">
+                <div class="stat-card">
+                    <h4>Attendance</h4>
+                    <p class="number">72%</p>
+                    <span class="danger">! Below 75%</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Total Subjects</h4>
+                    <p class="number">6</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Notification</h4>
+                    <p class="number">3</p>
+                </div>
+            </div>
+
+            <div class="notice">
+                <h4>Important Notice</h4>
+                <p>Please complete your attendance before exams.</p>
+            </div>
+        </div>
+        <div class="content hidden " id="profile">
+            <h2 class="title">My Profile</h2>
+            <hr>
+            <div class="profile-card">
+                <div class="personal">
+                    <h3>Personal Information</h3>
+                    <div class="profile-header">
+                        <img src="../css/student-removebg-preview.png" alt="">
+                        <div>
+                            <h4>Ashraf Shaikh</h4>
+                            <p>SY-BCA</p>
+                        </div>
+                    </div>
+                    <ul class="info">
+                        <li><i class="fa-solid fa-user"></i>Name: Ashraf Shaikh</li>
+                        <li><i class="fa-solid fa-envelope"></i>Email: abc@gmail.com</li>
+                        <li><i class="fa-solid fa-phone"></i>Phone: 9886546789</li>
+                        <li><i class="fa-solid fa-id-card"></i>DOB: 23-01-2002</li>
+                        <li><i class="fa-solid fa-location-dot"></i>Address: Pune,India</li>
+
+                    </ul>
+                </div>
+                <div class="education">
+                    
+                    <h3>Educational Details</h3>
+                    <ul class="edu-list">
+                        <li><i class="fa-solid fa-school"></i>10th Marks: 76%</li>
+                        <li><i class="fa-solid fa-graduation-cap"></i>12th Marks:87%</li>
+                        <li><i class="fa-solid fa-chart-line"></i>CET score: 89</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="content hidden" id="subjects">
+            <h2>My Subjects</h2>
+            <hr>
+            <div class="subs">
+                <div class="box">
+                    <h3>Mathematics</h3>
+                    <p><i class="fa-solid fa-user"></i>&nbsp;Prof.Shadab Ahmad</p>
+                    <div class="points">
+                        <ul>
+                            <li>Syllabus</li>
+                            <li>Assignment</li>
+                            <li>Que. Bank</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3>C Programming</h3>
+                    <p><i class="fa-solid fa-user"></i>&nbsp;Prof.Affan Shaikh</p>
+                    <div class="points">
+                        <ul>
+                            <li>Syllabus</li>
+                            <li>Assignment</li>
+                            <li>Que. Bank</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3>Database Managemnt</h3>
+                    <p><i class="fa-solid fa-user"></i>&nbsp;Prof.Fahim Yadgir</p>
+                    <div class="points">
+                        <ul>
+                            <li>Syllabus</li>
+                            <li>Assignment</li>
+                            <li>Que. Bank</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3>Web Development</h3>
+                    <p><i class="fa-solid fa-user"></i>&nbsp;Prof.Ibrahim Saasa</p>
+                    <div class="points">
+                        <ul>
+                            <li>Syllabus</li>
+                            <li>Assignment</li>
+                            <li>Que. Bank</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3>Power BI</h3>
+                    <p><i class="fa-solid fa-user"></i>&nbsp;Prof.Saihan Chelkar</p>
+                    <div class="points">
+                        <ul>
+                            <li>Syllabus</li>
+                            <li>Assignment</li>
+                            <li>Que. Bank</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content hidden" id="examform">
+            <h2>Exam Forms</h2>
+            <hr>
+            <div class="exam-placeholder">
+                <p>No exam forms available right now.</p>
+            </div>
+        </div>
+        <div class="content hidden" id="event">
+            <h2>Events</h2>
+            <hr>
+            <div class="events">
+            <div class="event-card">
+                <img src="../css/WhatsApp Image 2026-01-24 at 8.44.47 PM.jpeg" alt="">
+                <h3>AAGHAAZ 2.6</h3>
+                <a href="https://forms.gle/FsHt52m3xW5qezsv7">Register Now</a>
+            </div>
+            <div class="event-card">
+                <img src="../css/ELiber.jpeg" alt="">
+                <h3>E-LIBER 2026</h3>
+                <a href=" https://forms.gle/mo1cSMDAaNHc6yPE6">Register Now</a>
+            </div>
+        </div>
+        
+</div>
+<div class="content hidden" id="ticket">
+    <h2>Raise Ticket</h2>
+    <hr>
+    <div class="tick">
+        <svg width="120" height="120" viewBox="0 0 24 24" fill="none"
+     xmlns="http://www.w3.org/2000/svg">
+  <path d="M4 12a8 8 0 0116 0" stroke="#2563eb" stroke-width="2"/>
+  <rect x="2" y="12" width="4" height="6" rx="2" fill="#2563eb"/>
+  <rect x="18" y="12" width="4" height="6" rx="2" fill="#2563eb"/>
+  <circle cx="12" cy="18" r="1.5" fill="#2563eb"/>
+</svg>
+        <div class="fill">
+            <label for="email">Enter Your Email</label>
+            <input type="email" placeholder="Email" required>
+            <label for="subject">Subject</label>
+            <input type="text" placeholder="Subject" required>
+            <label for="description">Description</label>
+            <textarea name="description" id="description" aria-rowspan="10" placeholder="Enter Description"></textarea>
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <script src="../js/student.js"></script>
+</body>
+
+</html>

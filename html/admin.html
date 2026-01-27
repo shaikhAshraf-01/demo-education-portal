@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EducationHub Admin | 2026 Final</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        *{ margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body{ background:#f1f5f9; color: #1e293b; overflow: hidden; }
+        .topbar {
+  height: 60px;
+  background: linear-gradient(90deg, #1e3a8a, #2563eb);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+}
+
+.logout {
+  background: #3b82f6;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3 ease;
+
+}
+.logout:hover{
+  background: #123f88;
+  transform: translatey(-4px);
+}
+.portfolio {
+  text-align: center;
+  padding: 25px;
+}
+
+.portfolio img {
+  width: 90px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.portfolio h3 {
+  margin-bottom: 5px;
+}
+        .admin-container{ display:flex; height:100vh; }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar{ width:260px; background:#1e293b; color:#fff; padding:20px; flex-shrink: 0; }
+        .sidebar h2{ text-align:center; margin-bottom:30px; font-size: 20px; border-bottom: 1px solid #334155; padding-bottom: 15px; }
+        .sidebar ul{ list-style:none; }
+        .sidebar li{ padding:12px 15px; margin:8px 0; cursor:pointer; border-radius:6px; transition: 0.3s; display: flex; align-items: center; }
+        .sidebar li i{ margin-right:12px; width: 20px; }
+        .sidebar li:hover, .sidebar li.active{ background:#3b82f6; }
+
+        /* ===== MAIN CONTENT ===== */
+        .main{ flex:1; padding:30px; overflow-y:auto; }
+        .section{ display:none; animation: fadeIn 0.3s ease; }
+        .section.active{ display:block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ===== SEARCH BAR ===== */
+        .search-container { margin-bottom: 15px; position: relative; max-width: 400px; }
+        .search-container input { width: 100%; padding: 10px 15px 10px 40px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; }
+        .search-container i { position: absolute; left: 15px; top: 12px; color: #64748b; }
+
+        /* ===== UI COMPONENTS ===== */
+        .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; margin-bottom: 30px; }
+        .card{ background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #3b82f6; }
+        .card p{ font-size: 24px; font-weight: bold; margin-top: 5px; }
+
+        .table-container { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-top: 10px; }
+        table{ width:100%; border-collapse:collapse; margin-top: 10px; }
+        th,td{ padding:12px 15px; border-bottom:1px solid #f1f5f9; text-align:left; font-size: 13px; }
+        th{ background:#f8fafc; color: #475569; font-weight: 600; text-transform: uppercase; font-size: 11px; }
+
+        /* ===== TICKETS ===== */
+        .ticket-box { background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 5px solid #cbd5e1; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .t-resolved { border-left-color: #10b981; background: #f0fdf4; }
+        .t-pending { border-left-color: #f59e0b; background: #fffbeb; }
+        .badge { font-size: 10px; padding: 3px 8px; border-radius: 12px; font-weight: bold; }
+        .badge-green { background: #10b981; color: white; }
+        .badge-orange { background: #f59e0b; color: white; }
+
+        /* ===== FORMS & BUTTONS ===== */
+        .form-row { display: flex; gap: 20px; margin-bottom: 25px; flex-wrap: wrap; }
+        form{ background:#fff; padding:20px; border-radius:10px; flex: 1; min-width: 300px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+        form input, form select{ width:100%; padding:10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; }
+        form button{ padding:10px; background:#2563eb; color:white; border:none; border-radius:6px; cursor:pointer; font-weight: 600; margin-top: 10px; width: 100%; }
+
+        .action-btn{ padding:5px 10px; border:none; border-radius:4px; cursor:pointer; font-size: 10px; font-weight:bold; }
+        .edit-btn{ background: #dbeafe; color: #1e40af; margin-right: 5px; }
+        .delete-btn{ background: #fee2e2; color: #b91c1c; }
+        .pagination { margin-top: 15px; display: flex; justify-content: center; gap: 10px; }
+        .page-link { padding: 5px 12px; background: #fff; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; font-size: 12px; }
+    </style>
+</head>
+<body>
+<header class="topbar">
+        <div class="logo">
+            <h1><i class="fa-solid fa-graduation-cap"></i>EducationHub</h1>
+        </div>
+        <button class="logout">Logout</button>
+    </header>
+<div class="admin-container">
+    <aside class="sidebar">
+         <div class="portfolio">
+                <img src="../css/student-removebg-preview.png" alt="">
+                <h3>Hallo, Admin</h3>
+                
+            </div>
+        <ul>
+            <li class="active" onclick="openSection('dashboard',this)"><i class="fa-solid fa-house"></i>Dashboard</li>
+            <li onclick="openSection('students',this)"><i class="fa-solid fa-user-graduate"></i>Students</li>
+            <li onclick="openSection('teachers',this)"><i class="fa-solid fa-chalkboard-user"></i>Teachers</li>
+            <li onclick="openSection('exams',this)"><i class="fa-solid fa-file-lines"></i>Exam Forms</li>
+            <li onclick="openSection('tickets',this)"><i class="fa-solid fa-ticket"></i>Tickets</li>
+            <li onclick="openSection('events',this)"><i class="fa-solid fa-calendar-days"></i>&nbsp;Events</li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <!-- DASHBOARD -->
+        <div id="dashboard" class="section active">
+            <h2>System Overview - Jan 27, 2026</h2><br>
+            <div class="cards">
+                <div class="card"><h3>Total Students</h3><p>320</p></div>
+                <div class="card"><h3>Registered Teachers</h3><p>10</p></div>
+                <div class="card"><h3>New Admissions</h3><p>6 Today</p></div>
+            </div>
+            <div class="table-container">
+                <h3>6 Recent New Admissions</h3>
+                <table>
+                    <thead><tr><th>ID</th><th>Student Name</th><th>Course</th><th>Status</th></tr></thead>
+                    <tbody>
+                        <tr><td>#2026-01</td><td>Rahul Varma</td><td>FY-BCA</td><td><b style="color:green">Completed</b></td></tr>
+                        <tr><td>#2026-03</td><td>Aditya Deshmukh</td><td>SY-BCA</td><td><b style="color:blue">Processing</b></td></tr>
+                        <tr><td>#2026-06</td><td>Ishita Roy</td><td>FY-BCA</td><td><b style="color:green">Completed</b></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- STUDENTS SECTION -->
+        <div id="students" class="section">
+            <h2>Student Management</h2><br>
+            <form id="std-form">
+                <h3>Add New Student</h3>
+                <div class="form-grid">
+                    <input type="text" id="sn" placeholder="Name">
+                    <input type="text" id="sr" placeholder="Roll No">
+                    <input type="text" id="sc" placeholder="Class">
+                    <input type="text" id="sd" placeholder="Div">
+                    <input type="number" id="sf" placeholder="Paid (Max 40k)">
+                </div>
+                <button type="button" onclick="addStudent()">Add Student</button>
+            </form>
+
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="stdSearch" onkeyup="filterTable('std-table', 1)" placeholder="Search students by name...">
+            </div>
+
+            <div class="table-container">
+                <table id="std-table">
+                    <thead><tr><th>Roll</th><th>Name</th><th>Class</th><th>Div</th><th>Paid</th><th>Remaining</th><th>Action</th></tr></thead>
+                    <tbody id="std-body">
+                        <tr><td>101</td><td>Ashraf Shaikh</td><td>SY-BCA</td><td>A</td><td>35,000</td><td style="color:red">5,000</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>102</td><td>Aarav Mehta</td><td>FY-BCA</td><td>B</td><td>40,000</td><td style="color:green">0</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>103</td><td>Priya Sharma</td><td>SY-BCA</td><td>A</td><td>20,000</td><td style="color:red">20,000</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>104</td><td>Ishan Verma</td><td>TY-BCA</td><td>C</td><td>15,000</td><td style="color:red">25,000</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>105</td><td>Sana Khan</td><td>FY-BCA</td><td>B</td><td>38,000</td><td style="color:red">2,000</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>106</td><td>Rohan Das</td><td>SY-BCA</td><td>A</td><td>25,000</td><td style="color:red">15,000</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>107</td><td>Ananya Iyer</td><td>TY-BCA</td><td>C</td><td>40,000</td><td style="color:green">0</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>108</td><td>Vikram Singh</td><td>FY-BCA</td><td>B</td><td>12,000</td><td style="color:red">28,000</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>109</td><td>Meera Joshi</td><td>SY-BCA</td><td>A</td><td>30,000</td><td style="color:red">10,000</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>110</td><td>Karan Malhotra</td><td>TY-BCA</td><td>C</td><td>22,000</td><td style="color:red">18,000</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button class="page-link" style="background:#3b82f6; color:white">1</button>
+                    <button class="page-link" onclick="alert('Page 2 Loading...')">2</button>
+                    <button class="page-link" onclick="alert('Page 3 Loading...')">3</button>
+                    <button class="page-link" onclick="alert('Next Page')">Next Page</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEACHERS SECTION -->
+        <div id="teachers" class="section">
+            <h2>Teacher Management</h2><br>
+            <div class="form-row">
+                <form id="nt-form">
+                    <h3>Register New Teacher</h3>
+                    <input type="text" id="ntn" placeholder="Name" required>
+                    <input type="text" id="nti" placeholder="ID" required>
+                    <button type="button" onclick="regT()">Register</button>
+                </form>
+                <form id="at-form">
+                    <h3>Assign Subject & Div</h3>
+                    <select id="atn"><option>Select Teacher</option><option>Prof. Ashraf Shaikh</option><option>Dr. Sunita Rao</option></select>
+                    <input type="text" id="ats" placeholder="Subject">
+                    <input type="text" id="atc" placeholder="Class">
+                    <input type="text" id="atd" placeholder="Div (A/B/C)">
+                    <button type="button" onclick="assignT()">Assign Now</button>
+                </form>
+            </div>
+
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="tchSearch" onkeyup="filterTable('tch-table', 1)" placeholder="Search teachers by name...">
+            </div>
+
+            <div class="table-container">
+                <table id="tch-table">
+                    <thead><tr><th>ID</th><th>Name</th><th>Subject</th><th>Class</th><th>Div</th><th>Action</th></tr></thead>
+                    <tbody id="tch-body">
+                        <tr><td>T01</td><td>Prof. Ashraf Shaikh</td><td>C++</td><td>FY-BCA</td><td>A</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>T02</td><td>Dr. Sunita Rao</td><td>Java</td><td>SY-BCA</td><td>B</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>T03</td><td>Mr. Amit Patil</td><td>DBMS</td><td>TY-BCA</td><td>C</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>T04</td><td>Ms. Clara D.</td><td>Network</td><td>SY-BCA</td><td>A</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>T05</td><td>Prof. Rajesh K.</td><td>Web</td><td>FY-BCA</td><td>B</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>T06</td><td>Dr. Neha G.</td><td>Python</td><td>TY-BCA</td><td>A</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>T07</td><td>Mr. Samuel L.</td><td>Security</td><td>SY-BCA</td><td>C</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>T08</td><td>Ms. Pooja H.</td><td>Cloud</td><td>TY-BCA</td><td>B</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>T09</td><td>Prof. Vijay M.</td><td>Maths</td><td>FY-BCA</td><td>A</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                        <tr><td>T10</td><td>Dr. Ritesh D.</td><td>S.E.</td><td>SY-BCA</td><td>B</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn">Delete</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- EXAM FORMS -->
+        <div id="exams" class="section">
+            <h2>Exam Form Link Generator</h2><br>
+            <form id="ex-form">
+                <h3>Generate Form Link</h3>
+                <div class="form-grid">
+                    <input type="text" id="ext" placeholder="Exam Title">
+                    <input type="text" id="exu" placeholder="Paste URL">
+                    <input type="text" id="exc" placeholder="Class">
+                </div>
+                <button type="button" onclick="addEx()">Create Link</button>
+            </form>
+            <div class="table-container">
+                <table id="ex-table">
+                    <thead><tr><th>Title</th><th>Class</th><th>URL</th><th>Action</th></tr></thead>
+                    <tbody id="ex-body">
+                        <tr><td>Final Semester 2026</td><td>BCA-All</td><td><a href="#">View Link</a></td><td><button class="action-btn delete-btn">Disable</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TICKETS -->
+        <div id="tickets" class="section">
+            <h2>Support Management</h2><br>
+            <div class="ticket-box t-resolved"><span class="badge badge-green">Resolved</span><h4>Ticket #101: Ashraf</h4><p>Fees portal issue fixed.</p></div>
+            <div class="ticket-box t-resolved"><span class="badge badge-green">Resolved</span><h4>Ticket #102: Prof. Sunita</h4><p>Attendance sync resolved.</p></div>
+            <div class="ticket-box t-pending"><span class="badge badge-orange">Pending</span><h4>Ticket #103: Ishan</h4><p>Course change request in review.</p></div>
+        </div>
+
+        <!-- EVENTS -->
+        <div id="events" class="section">
+            <h2>Events</h2><br>
+            <div class="table-container" style="text-align:center; padding:50px; color:#94a3b8;">
+                <i class="fa-solid fa-calendar-xmark" style="font-size:50px;"></i>
+                <h3>No Active Events Scheduled</h3>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    function openSection(id, el){
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        document.querySelectorAll('.sidebar li').forEach(l => l.classList.remove('active'));
+        el.classList.add('active');
+    }
+
+    // Real-time Search Logic
+    function filterTable(tableId, colIndex) {
+        let input = tableId === 'std-table' ? document.getElementById("stdSearch") : document.getElementById("tchSearch");
+        let filter = input.value.toUpperCase();
+        let table = document.getElementById(tableId);
+        let tr = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < tr.length; i++) {
+            let td = tr[i].getElementsByTagName("td")[colIndex];
+            if (td) {
+                let txtValue = td.textContent || td.innerText;
+                tr[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
+            }
+        }
+    }
+
+    function addStudent() {
+        let paid = parseInt(document.getElementById('sf').value) || 0;
+        let rem = 40000 - paid;
+        let row = `<tr><td>${document.getElementById('sr').value}</td><td>${document.getElementById('sn').value}</td><td>${document.getElementById('sc').value}</td><td>${document.getElementById('sd').value}</td><td>${paid.toLocaleString()}</td><td style="color:${rem>0?'red':'green'}">${rem.toLocaleString()}</td><td><button class="action-btn edit-btn">Edit</button><button class="action-btn delete-btn" onclick="this.closest('tr').remove()">Delete</button></td></tr>`;
+        document.getElementById('std-body').insertAdjacentHTML('afterbegin', row);
+        document.getElementById('std-form').reset();
+    }
+
+    function regT() {
+        let n = document.getElementById('ntn').value;
+        let sel = document.getElementById('atn');
+        let opt = document.createElement("option"); opt.text = n; sel.add(opt);
+        let row = `<tr><td>${document.getElementById('nti').value}</td><td>${n}</td><td>---</td><td>---</td><td>---</td><td><button class="action-btn delete-btn" onclick="this.closest('tr').remove()">Delete</button></td></tr>`;
+        document.getElementById('tch-body').insertAdjacentHTML('afterbegin', row);
+        document.getElementById('nt-form').reset();
+    }
+
+    function assignT() {
+        let row = `<tr><td>Assign</td><td>${document.getElementById('atn').value}</td><td>${document.getElementById('ats').value}</td><td>${document.getElementById('atc').value}</td><td>${document.getElementById('atd').value}</td><td><button class="action-btn edit-btn">Edit</button></td></tr>`;
+        document.getElementById('tch-body').insertAdjacentHTML('afterbegin', row);
+    }
+
+    function addEx() {
+        let row = `<tr><td>${document.getElementById('ext').value}</td><td>${document.getElementById('exc').value}</td><td><a href="${document.getElementById('exu').value}">Link</a></td><td><button class="action-btn delete-btn">Disable</button></td></tr>`;
+        document.getElementById('ex-body').innerHTML += row;
+    }
+</script>
+</body>
+</html>
