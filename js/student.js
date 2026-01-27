@@ -9,6 +9,10 @@ function openSection(id, el){
 
     el.classList.add('active');
 }
+LogOut=document.querySelector('.logout');
+LogOut.addEventListener('click',()=>{
+    window.location.href=`../index.html`
+})
 
 function filterTable(tableId, colIndex){
     let input = document.getElementById("stdSearch");
