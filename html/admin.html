@@ -278,6 +278,7 @@
 </div>
 
 <script>
+    LogOut=document.querySelector('.logout');
     function openSection(id, el){
         document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
         document.getElementById(id).classList.add('active');
@@ -327,6 +328,9 @@
         let row = `<tr><td>${document.getElementById('ext').value}</td><td>${document.getElementById('exc').value}</td><td><a href="${document.getElementById('exu').value}">Link</a></td><td><button class="action-btn delete-btn">Disable</button></td></tr>`;
         document.getElementById('ex-body').innerHTML += row;
     }
+    LogOut.addEventListener('click',()=>{
+    window.location.href=`../index.html`
+})
 </script>
 </body>
 </html>
