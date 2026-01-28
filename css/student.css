@@ -394,6 +394,82 @@ hr {
 .hidden {
   display: none;
 }
+#ai-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 14px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+#ai-chat {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 320px;
+  height: 420px;
+  background: rgba(10, 15, 30, 0.95);
+  color: white;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+#ai-chat.hidden {
+  display: none;
+}
+
+.ai-header {
+  padding: 12px;
+  background: #2563eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#ai-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+}
+
+.ai-user {
+  text-align: right;
+  margin-bottom: 8px;
+}
+
+.ai-bot {
+  text-align: left;
+  color: #93c5fd;
+  margin-bottom: 12px;
+}
+
+#ai-input {
+  border: none;
+  padding: 10px;
+  outline: none;
+  font-size: 0.9rem;
+}
+#close-ai {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+#close-ai:hover {
+  opacity: 0.7;
+}
 
 /* ============================================
    MEDIA QUERIES - RESPONSIVE DESIGN

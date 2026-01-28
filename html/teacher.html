@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Portal</title>
     <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/teacher.css">
+    <!-- <link rel="stylesheet" href="../css/student.css"> -->
+
 </head>
+
 <body>
     <header class="topbar">
         <div class="logo">
@@ -36,50 +40,71 @@
             <section id="dashboard" class="content-section">
                 <h2>Upcoming Classes</h2>
                 <hr><br>
+
                 <div class="upload-card">
-                    <strong>Maths - Class 10</strong><br>
+                    <strong>Maths - S.Y BCA (DIV D)</strong><br>
+                    Time: 9:00 AM – 10:00 AM
+                </div>
+                <hr><br>
+                <div class="upload-card">
+                    <strong>Java - S.Y BCA (DIV D)</strong><br>
                     Time: 10:00 AM – 11:00 AM
                 </div>
+                <hr><br>
+                <div class="upload-card">
+                    <strong>ADBMS - S.Y BCA (DIV D)</strong><br>
+                    Time: 11:15 AM – 12:15 PM
+                </div>
+
             </section>
 
             <!-- 2. Profile Section -->
             <section id="profile" class="content-section hidden">
-               
-            <h2 class="title">My Profile</h2>
-            <hr>
-            <div class="profile-card">
-                <div class="personal">
-                    <h3>Personal Information</h3>
-                    <div class="profile-header">
-                        <img src="../css/student-removebg-preview.png" alt="">
-                        <div>
-                            <h4>Ashraf Shaikh</h4>
-                            <p>SY-BCA</p>
+
+                <h2 class="title">My Profile</h2>
+                <hr>
+                <div class="profile-card">
+                    <div class="personal">
+                        <h3>Personal Information</h3>
+                        <div class="profile-header">
+                            <img src="../css/student-removebg-preview.png" alt="">
+                            <div>
+                                <h4>Ashraf Shaikh</h4>
+                                <p>SY-BCA</p>
+                            </div>
                         </div>
+                        <ul class="info">
+                            <li><i class="fa-solid fa-user"></i>Name: Ashraf Shaikh</li>
+                            <li><i class="fa-solid fa-envelope"></i>Email: abc@gmail.com</li>
+                            <li><i class="fa-solid fa-phone"></i>Phone: 9886546789</li>
+                            <li><i class="fa-solid fa-id-card"></i>DOB: 23-01-2002</li>
+                            <li><i class="fa-solid fa-location-dot"></i>Address: Pune,India</li>
+
+                        </ul>
                     </div>
-                    <ul class="info">
-                        <li><i class="fa-solid fa-user"></i>Name: Ashraf Shaikh</li>
-                        <li><i class="fa-solid fa-envelope"></i>Email: abc@gmail.com</li>
-                        <li><i class="fa-solid fa-phone"></i>Phone: 9886546789</li>
-                        <li><i class="fa-solid fa-id-card"></i>DOB: 23-01-2002</li>
-                        <li><i class="fa-solid fa-location-dot"></i>Address: Pune,India</li>
+                    <div class="education">
 
-                    </ul>
+                        <h3>Experience & Specialization</h3>
+                        <ul class="edu-list">
+                            <li><i class="fa-solid fa-book"></i>MCA 2014</li>
+                            <li><i class="fa-solid fa-graduation-cap"></i>Phd in Computer Science</li>
+                            <li><i class="fa-solid fa-chart-line"></i>All India #1</li>
+
+                        </ul>
+                        <h3>Description</h3>
+                        <ul class="edu-list">
+                            <li>Worked 6 years in IT company, as well as various projects overtaken by my team and I.
+                                Moreover, I have intensive knowledge in programming languages such as C, C++, Java and
+                                many more.</li>
+
+                        </ul>
+
+                    </div>
+
+
+
+
                 </div>
-                <div class="education">
-                    
-                    <h3>Educational Details</h3>
-                    <ul class="edu-list">
-                        <li><i class="fa-solid fa-school"></i>10th Marks: 76%</li>
-                        <li><i class="fa-solid fa-graduation-cap"></i>12th Marks:87%</li>
-                        <li><i class="fa-solid fa-chart-line"></i>CET score: 89</li>
-                    </ul>
-                </div>
-           
-
-
-
-        </div>
             </section>
 
             <!-- 3. Time Table Section -->
@@ -90,164 +115,187 @@
                     <table>
                         <thead>
                             <tr>
-                    <th>Day</th>
-                    <th>Lecture 1<br><small>09:00 - 10:00</small></th>
-                    <th>Lecture 2<br><small>10:00 - 11:00</small></th>
-                    <th>Break<br><small>11:00 - 11:30</small></th>
-                    <th>Lecture 3<br><small>11:30 - 12:30</small></th>
-                    <th>Practical<br><small>12:30 - 02:00</small></th>
-                </tr>
+                                <th>Day</th>
+                                <th>Lecture 1<br><small>09:00 - 10:00</small></th>
+                                <th>Lecture 2<br><small>10:00 - 11:00</small></th>
+                                <th>Break<br><small>11:00 - 11:30</small></th>
+                                <th>Lecture 3<br><small>11:30 - 12:30</small></th>
+                                <th>Practical<br><small>12:30 - 02:00</small></th>
+                            </tr>
                         </thead>
                         <tbody>
                             <!-- Generates Mon to Sat -->
                             <tr>
-                    <td>Monday</td>
-                    <td><span class="class-label">SYBCA Div B</span><br>JAVA</td>
-                    <td><span class="class-label">FYBCA Div C&D</span><br>C Language</td>
-                    <td class="break-row">RECESS</td>
-                    <td><span class="class-label">SYBCA Div A</span><br>JAVA</td>
-                    <td><span class="class-label">SYBCA Div B</span><br>JAVA Lab</td>
-                </tr>
-                <tr>
-                    <td>Tuesday</td>
-                    <td><span class="class-label">SYBCA Div A</span><br>JAVA</td>
-                    <td><span class="class-label">SYBCA Div B</span><br>JAVA</td>
-                    <td class="break-row">RECESS</td>
-                    <td><span class="class-label">FYBCA Div C&D</span><br>C Language</td>
-                    <td><span class="class-label">FYBCA Div C&D</span><br>C Lab</td>
-                </tr>
-                <tr>
-                    <td>Wednesday</td>
-                    <td><span class="class-label">SYBCA Div B</span><br>JAVA</td>
-                    <td><span class="class-label">FYBCA Div C&D</span><br>C Language</td>
-                    <td class="break-row">RECESS</td>
-                    <td><span class="class-label">SYBCA Div A</span><br>JAVA</td>
-                    <td><span class="class-label">SYBCA Div B</span><br>JAVA Lab</td>
-                </tr>
-                <tr>
-                    <td>Thursday</td>
-                    <td><span class="class-label">SYBCA Div A</span><br>JAVA</td>
-                    <td><span class="class-label">SYBCA Div B</span><br>JAVA</td>
-                    <td class="break-row">RECESS</td>
-                    <td><span class="class-label">FYBCA Div C&D</span><br>C Language</td>
-                    <td><span class="class-label">FYBCA Div C&D</span><br>C Lab</td>
-                </tr>
-                <tr>
-                    <td>friday</td>
-                    <td><span class="class-label">SYBCA Div B</span><br>JAVA</td>
-                    <td><span class="class-label">FYBCA Div C&D</span><br>C Language</td>
-                    <td class="break-row">RECESS</td>
-                    <td><span class="class-label">SYBCA Div A</span><br>JAVA</td>
-                    <td><span class="class-label">SYBCA Div B</span><br>JAVA Lab</td>
-                </tr>
-                <tr>
-                    <td>Saturday</td>
-                    <td><span class="class-label">SYBCA Div A</span><br>JAVA</td>
-                    <td><span class="class-label">SYBCA Div B</span><br>JAVA</td>
-                    <td class="break-row">RECESS</td>
-                    <td><span class="class-label">FYBCA Div C&D</span><br>C Language</td>
-                    <td><span class="class-label">FYBCA Div C&D</span><br>C Lab</td>
-                </tr>
+                                <td>Monday</td>
+                                <td><span class="class-label">SYBCA Div B</span><br>JAVA</td>
+                                <td><span class="class-label">FYBCA Div C&D</span><br>C Language</td>
+                                <td class="break-row">RECESS</td>
+                                <td><span class="class-label">SYBCA Div A</span><br>JAVA</td>
+                                <td><span class="class-label">SYBCA Div B</span><br>JAVA Lab</td>
+                            </tr>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td><span class="class-label">SYBCA Div A</span><br>JAVA</td>
+                                <td><span class="class-label">SYBCA Div B</span><br>JAVA</td>
+                                <td class="break-row">RECESS</td>
+                                <td><span class="class-label">FYBCA Div C&D</span><br>C Language</td>
+                                <td><span class="class-label">FYBCA Div C&D</span><br>C Lab</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td><span class="class-label">SYBCA Div B</span><br>JAVA</td>
+                                <td><span class="class-label">FYBCA Div C&D</span><br>C Language</td>
+                                <td class="break-row">RECESS</td>
+                                <td><span class="class-label">SYBCA Div A</span><br>JAVA</td>
+                                <td><span class="class-label">SYBCA Div B</span><br>JAVA Lab</td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td><span class="class-label">SYBCA Div A</span><br>JAVA</td>
+                                <td><span class="class-label">SYBCA Div B</span><br>JAVA</td>
+                                <td class="break-row">RECESS</td>
+                                <td><span class="class-label">FYBCA Div C&D</span><br>C Language</td>
+                                <td><span class="class-label">FYBCA Div C&D</span><br>C Lab</td>
+                            </tr>
+                            <tr>
+                                <td>friday</td>
+                                <td><span class="class-label">SYBCA Div B</span><br>JAVA</td>
+                                <td><span class="class-label">FYBCA Div C&D</span><br>C Language</td>
+                                <td class="break-row">RECESS</td>
+                                <td><span class="class-label">SYBCA Div A</span><br>JAVA</td>
+                                <td><span class="class-label">SYBCA Div B</span><br>JAVA Lab</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td><span class="class-label">SYBCA Div A</span><br>JAVA</td>
+                                <td><span class="class-label">SYBCA Div B</span><br>JAVA</td>
+                                <td class="break-row">RECESS</td>
+                                <td><span class="class-label">FYBCA Div C&D</span><br>C Language</td>
+                                <td><span class="class-label">FYBCA Div C&D</span><br>C Lab</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </section>
 
             <!-- 4. My Classes (Study Material & Attendance) -->
-<section id="classes" class="content-section hidden">
-    <h2>My Classes - Materials & Attendance</h2>
-    <hr><br>
+            <section id="classes" class="content-section hidden">
+                <h2>My Classes - Materials & Attendance</h2>
+                <hr><br>
 
-    <!-- NEW: Attendance Section -->
-    <div class="attendance-container">
-        <h3><i class="fa-solid fa-user-check"></i> Mark Daily Attendance</h3>
-        <div class="upload-card" style="display: flex; gap: 15px; align-items: flex-end; flex-wrap: wrap;">
-            <div>
-                <label>Select Class:</label><br>
-                <select id="attendanceClass" class="custom-select">
-                    <option>SYBCA Div A (JAVA)</option>
-                    <option>SYBCA Div B (JAVA)</option>
-                    <option>FYBCA Div C&D (C Lang)</option>
-                </select>
-            </div>
-            <div>
-                <label>Date:</label><br>
-                <input type="date" value="2026-01-26" class="custom-select">
-            </div>
-            <div>
-                <label>Upload Presenty List (CSV/Excel):</label><br>
-                <input type="file">
-            </div>
-            <button class="btn-upload" style="width: auto; background: #2c3e50;">Submit Attendance</button>
-        </div>
-    </div>
+                <!-- NEW: Attendance Section -->
+                <div class="attendance-container">
+                    <h3><i class="fa-solid fa-user-check"></i> Mark Daily Attendance</h3>
+                    <div class="upload-card" style="display: flex; gap: 15px; align-items: flex-end; flex-wrap: wrap;">
+                        <div>
+                            <label>Select Class:</label><br>
+                            <select id="attendanceClass" class="custom-select">
+                                <option>SYBCA Div A (JAVA)</option>
+                                <option>SYBCA Div B (JAVA)</option>
+                                <option>FYBCA Div C&D (C Lang)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Date:</label><br>
+                            <input type="date" value="2026-01-26" class="custom-select">
+                        </div>
+                        <div>
+                            <label>Upload Presenty List (CSV/Excel):</label><br>
+                            <input type="file">
+                        </div>
+                        <button class="btn-upload" style="width: auto; background: #2c3e50;">Submit Attendance</button>
+                    </div>
+                </div>
 
-    <br><h3><i class="fa-solid fa-folder-open"></i> Upload Study Materials</h3>
-    <div class="class-grid">
-        <!-- Java Division A -->
-        <div class="upload-card">
-            <span class="subject-tag">JAVA</span>
-            <h4>SYBCA - Division A</h4>
-            
-            <label>Material Type:</label>
-            <select class="type-select">
-                <option>Syllabus</option>
-                <option>Assignment</option>
-                <option>Question Bank</option>
-            </select>
+                <br>
+                <h3><i class="fa-solid fa-folder-open"></i> Upload Study Materials</h3>
+                <div class="class-grid">
+                    <!-- Java Division A -->
+                    <div class="upload-card">
+                        <span class="subject-tag">JAVA</span>
+                        <h4>SYBCA - Division A</h4>
 
-            <input type="file" class="file-input">
-            <button class="btn-upload">Upload to Div A</button>
-        </div>
+                        <label>Material Type:</label>
+                        <select class="type-select">
+                            <option>Syllabus</option>
+                            <option>Assignment</option>
+                            <option>Question Bank</option>
+                        </select>
 
-        <!-- Java Division B -->
-        <div class="upload-card">
-            <span class="subject-tag">JAVA</span>
-            <h4>SYBCA - Division B</h4>
-            
-            <label>Material Type:</label>
-            <select class="type-select">
-                <option>Syllabus</option>
-                <option>Assignment</option>
-                <option>Question Bank</option>
-            </select>
+                        <input type="file" class="file-input">
+                        <button class="btn-upload">Upload to Div A</button>
+                    </div>
 
-            <input type="file" class="file-input">
-            <button class="btn-upload">Upload to Div B</button>
-        </div>
+                    <!-- Java Division B -->
+                    <div class="upload-card">
+                        <span class="subject-tag">JAVA</span>
+                        <h4>SYBCA - Division B</h4>
 
-        <!-- C Language Division C&D -->
-        <div class="upload-card">
-            <span class="subject-tag c-lang">C Language</span>
-            <h4>FYBCA - Division C & D</h4>
-            
-            <label>Material Type:</label>
-            <select class="type-select">
-                <option>Syllabus</option>
-                <option>Assignment</option>
-                <option>Question Bank</option>
-            </select>
+                        <label>Material Type:</label>
+                        <select class="type-select">
+                            <option>Syllabus</option>
+                            <option>Assignment</option>
+                            <option>Question Bank</option>
+                        </select>
 
-            <input type="file" class="file-input">
-            <button class="btn-upload">Upload to Div C&D</button>
-        </div>
-    </div>
-</section>
+                        <input type="file" class="file-input">
+                        <button class="btn-upload">Upload to Div B</button>
+                    </div>
+
+                    <!-- C Language Division C&D -->
+                    <div class="upload-card">
+                        <span class="subject-tag c-lang">C Language</span>
+                        <h4>FYBCA - Division C & D</h4>
+
+                        <label>Material Type:</label>
+                        <select class="type-select">
+                            <option>Syllabus</option>
+                            <option>Assignment</option>
+                            <option>Question Bank</option>
+                        </select>
+
+                        <input type="file" class="file-input">
+                        <button class="btn-upload">Upload to Div C&D</button>
+                    </div>
+                </div>
+            </section>
 
 
             <!-- 5. Raise Ticket Section -->
-            <section id="ticket" class="content-section hidden">
+            <section id="ticket" class="content-section hidden form-ticket">
                 <h2>Raise Ticket</h2>
                 <hr>
-                <div class="ticket-form">
+                <!-- <div class="ticket-form">
                     <p>Enter your issue details below:</p>
                     <textarea placeholder="I am having trouble with..."></textarea>
                     <button class="btn-upload" style="background: #e67e22;">Submit Ticket</button>
-                </div>
+                </div> -->
+                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12a8 8 0 0116 0" stroke="#2563eb" stroke-width="2" />
+                    <rect x="2" y="12" width="4" height="6" rx="2" fill="#2563eb" />
+                    <rect x="18" y="12" width="4" height="6" rx="2" fill="#2563eb" />
+                    <circle cx="12" cy="18" r="1.5" fill="#2563eb" />
+                </svg>
+                <form class="fill" action="https://formspree.io/f/mbdovkzk" method="POST">
+                    <input type="hidden" name="_subject" value="New Student Ticket">
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+
+                    <label>Name</label>
+                    <input type="text" name="name" required>
+
+                    <label>Description</label>
+                    <textarea name="message" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
             </section>
         </main>
     </div>
 
     <script src="../js/teacher.js"></script>
 </body>
+
 </html>

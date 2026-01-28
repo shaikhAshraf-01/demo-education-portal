@@ -194,19 +194,41 @@
                     <rect x="18" y="12" width="4" height="6" rx="2" fill="#2563eb" />
                     <circle cx="12" cy="18" r="1.5" fill="#2563eb" />
                 </svg>
-                <div class="fill">
-                    <label for="email">Enter Your Email</label>
-                    <input type="email" placeholder="Email" required>
-                    <label for="subject">Subject</label>
-                    <input type="text" placeholder="Subject" required>
-                    <label for="description">Description</label>
-                    <textarea name="description" id="description" aria-rowspan="10"
-                        placeholder="Enter Description"></textarea>
+                <form class="fill" action="https://formspree.io/f/mbdovkzk" method="POST">
+                    <input type="hidden" name="_subject" value="New Student Ticket">
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+
+                    <label>Name</label>
+                    <input type="text" name="name" required>
+
+                    <label>Description</label>
+                    <textarea name="message" required></textarea>
+
                     <button type="submit">Submit</button>
-                </div>
+                </form>
+
+
             </div>
         </div>
     </div>
+
+    <button id="ai-btn">🤖</button>
+
+    <div id="ai-chat" class="hidden">
+        <div class="ai-header">
+            Student Assistant (Demo)
+            <button id="close-ai" type="button">✕</button>
+
+        </div>
+
+        <div id="ai-messages"></div>
+
+        <input id="ai-input" placeholder="Ask about subjects, exams, events..." />
+    </div>
+
 
     <script src="../js/student.js"></script>
 </body>
